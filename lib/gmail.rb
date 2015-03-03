@@ -46,9 +46,7 @@ module Gmail
 
   def self.request(method, params={}, body={})
     params[:userId] ||= "me"
-    if @client.nil?
-      self.connect
-    end
+    self.connect
     if body.empty?
       response = @client.execute(
           :api_method => method,
